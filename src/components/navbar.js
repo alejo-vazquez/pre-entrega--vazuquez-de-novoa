@@ -1,16 +1,9 @@
-import './App.css';
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
-
-import About from './components/about';
-import Contact from './components/contact';
-import Home from './components/home';
-import NavBarExample from './components/navbar';
 import { Navbar, Nav, Container } from "react-bootstrap"
 
-function App() {
-  return (
-<div>
-<Navbar bg="dark" variant="dark">
+const NavbarExample = () => {    
+    return (        
+    <>
+        <Navbar bg="dark" variant="dark">
         <Container>
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="me-auto">
@@ -20,8 +13,7 @@ function App() {
             </Nav>
         </Container>
         </Navbar>
-</div>
-  );
+    </>
+);
 }
-
-export default App;
+export default NavbarExample
