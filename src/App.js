@@ -6,20 +6,28 @@ import Contact from './components/contact';
 import Home from './components/home';
 import NavBarExample from './components/navbar';
 import { Navbar, Nav, Container } from "react-bootstrap"
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import CartWidget from './components/cartwidget';
+import ItemListContainer from './components/itemlistcontainer';
+
 
 function App() {
   return (
-<div>
-<Navbar bg="dark" variant="dark">
-        <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#contact">contact</Nav.Link>
-            </Nav>
-        </Container>
-        </Navbar>
+<div className="App">
+<BrowserRouter>
+<Routes>
+  <Route path='/' element={ <NavBarExample /> }>
+    <Route index element={ <Home /> } />
+    <Route path='about' element={ <About /> } />
+    <Route path='contact' element={ <Contact /> } />
+    <Route path='cartwidget' element={ <CartWidget   /> } />
+    <Route path='*' element={ <Navigate replace to="/"/> }/>
+  </Route>
+</Routes> 
+</BrowserRouter>
+<>
+<ItemListContainer persona="alejo"/>
+</>
 </div>
   );
 }
